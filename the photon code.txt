@@ -17,7 +17,7 @@ Servo langeFinger;
 Servo pekeFinger;
 Servo tommelFinger;
 
-int posLille = 90;    // variable to store the servo position
+int posLille = 90;    
 int posRinge = 90;
 int posLange = 90;
 int posPeke = 90;
@@ -46,6 +46,9 @@ void setup()
   Spark.function("wavehand", waveHand);
   Spark.function("fisthand", fistHand);
   Spark.function("pointhand", pointHand);
+  Spark.function("peacehand", peaceHand);
+  Spark.function("fuckhand", fuckHand);
+  Spark.function("devilhand", devilHand);
   
   
   
@@ -70,23 +73,17 @@ void loop()
   // do nothing
 }
 
-//this function automagically gets called upon a matching POST request
 int updateLilleFinger(String command)
 {
-  // convert string to integer
   uint8_t posLille = command.toInt();
 
-  // process if integer is 0 - 180
   if(posLille <= 180)
   {
-    // tell servo to go to position in variable 'pos'
     lilleFinger.write(posLille);
 
-    // return an integer success code that can be processed by our app
     return 200;
   }
   else {
-    // return an integer error code that can be processed by our app
     return -1;
   }
 }
@@ -330,6 +327,141 @@ int fistHand(String command)
 int pointHand(String command)
 {
     posLille = 180;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 180;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 180;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 0;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 180;
+    tommelFinger.write(posTommel);
+    delay(5000);
+    //---------------------------------------
+    
+    posLille = 90;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 90;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 90;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 90;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 90;
+    tommelFinger.write(posTommel);
+    
+    return 200;
+}
+
+int peaceHand(String command)
+{
+    posLille = 180;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 180;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 0;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 0;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 180;
+    tommelFinger.write(posTommel);
+    delay(5000);
+    //---------------------------------------
+    
+    posLille = 90;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 90;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 90;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 90;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 90;
+    tommelFinger.write(posTommel);
+    
+    return 200;
+}
+
+int fuckHand(String command)
+{
+    posLille = 180;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 180;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 0;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 180;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 180;
+    tommelFinger.write(posTommel);
+    delay(5000);
+    //---------------------------------------
+    
+    posLille = 90;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 90;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 90;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 90;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 90;
+    tommelFinger.write(posTommel);
+    
+    return 200;
+}
+
+int devilHand(String command)
+{
+    posLille = 0;
     lilleFinger.write(posLille);
     delay(100);
     
