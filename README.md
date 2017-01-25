@@ -2,7 +2,7 @@
 code++ for "the photon" and node.js scripts
 
 hand robotics.
-my grama is shity. live with it.
+the hand is 3D printed with the model from: http://www.instructables.com/id/DIY-Robotic-Hand-Controlled-by-a-Glove-and-Arduino/
 
 modes:
 
