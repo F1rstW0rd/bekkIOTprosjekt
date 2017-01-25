@@ -1,7 +1,7 @@
 
 var request = require('request');
 
-
+String accessTOLKEN = "";
 // Set the headers
 var headers = {
     'User-Agent':       'Super Agent/0.0.1',
@@ -10,7 +10,7 @@ var headers = {
 
 // Configure the request
 var options = {
-    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/okhand?access_token=e278857e5694b5a65989b25d324b1feb48c8bcbb',
+    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/okhand?access_token=' + accessTOLKEN,
     method: 'POST',
     headers: headers,
     form: {'okhand': 'xxx'}
