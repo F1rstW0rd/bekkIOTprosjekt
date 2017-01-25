@@ -2,7 +2,7 @@ var login = require("facebook-chat-api");
 var request = require('request');
 var emoji = require('node-emoji');
 
-console.log("TEST");
+String accessTOLKEN = "";
 
 login({email: "", password: ""}, function callback (err, api) {
     if(err) return console.error(err);
@@ -25,7 +25,7 @@ login({email: "", password: ""}, function callback (err, api) {
 
 				// Configure the request
 				var options = {
-				    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/tommelopp?access_token=e278857e5694b5a65989b25d324b1feb48c8bcbb',
+				    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/tommelopp?access_token=' + accessTOLKEN,
 				    method: 'POST',
 				    headers: headers,
 				    form: {'tommelopp': 'xxx'}
@@ -52,7 +52,7 @@ login({email: "", password: ""}, function callback (err, api) {
 
 					// Configure the request
 					var options = {
-					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/pointhand?access_token=e278857e5694b5a65989b25d324b1feb48c8bcbb',
+					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/pointhand?access_token=' + accessTOLKEN,
 					    method: 'POST',
 					    headers: headers,
 					    form: {'pointhand': 'xxx'}
@@ -68,6 +68,7 @@ login({email: "", password: ""}, function callback (err, api) {
             	break;
 
             	case "facepunch":
+            	case "fist":
             	case "punch":
             		// Set the headers
 					var headers = {
@@ -77,7 +78,7 @@ login({email: "", password: ""}, function callback (err, api) {
 
 					// Configure the request
 					var options = {
-					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/fisthand?access_token=e278857e5694b5a65989b25d324b1feb48c8bcbb',
+					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/fisthand?access_token=' + accessTOLKEN,
 					    method: 'POST',
 					    headers: headers,
 					    form: {'fisthand': 'xxx'}
@@ -92,6 +93,9 @@ login({email: "", password: ""}, function callback (err, api) {
 					})
             	break;
             	
+            	case "raised_hand":
+            	case "raised_hand_with_fingers_splayed":
+            	case "hand":
             	case "wave":
             		// Set the headers
 					var headers = {
@@ -101,7 +105,7 @@ login({email: "", password: ""}, function callback (err, api) {
 
 					// Configure the request
 					var options = {
-					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/wavehand?access_token=e278857e5694b5a65989b25d324b1feb48c8bcbb',
+					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/wavehand?access_token=' + accessTOLKEN,
 					    method: 'POST',
 					    headers: headers,
 					    form: {'wavehand': 'xxx'}
@@ -125,10 +129,84 @@ login({email: "", password: ""}, function callback (err, api) {
 
 					// Configure the request
 					var options = {
-					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/okhand?access_token=e278857e5694b5a65989b25d324b1feb48c8bcbb',
+					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/okhand?access_token=' + accessTOLKEN,
 					    method: 'POST',
 					    headers: headers,
 					    form: {'okhand': 'xxx'}
+					}
+
+					// Start the request
+					request(options, function (error, response, body) {
+					    if (!error && response.statusCode == 200) {
+					        // Print out the response body
+					        console.log(body)
+					    }
+					})
+            	break;
+
+            	case "the_horns":
+            	case "sign_of_the_horns":
+
+            	break;
+            		// Set the headers
+					var headers = {
+					    'User-Agent':       'Super Agent/0.0.1',
+					    'Content-Type':     'application/x-www-form-urlencoded'
+					}
+
+					// Configure the request
+					var options = {
+					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/devilhand?access_token=' + accessTOLKEN,
+					    method: 'POST',
+					    headers: headers,
+					    form: {'devilhand': 'xxx'}
+					}
+
+					// Start the request
+					request(options, function (error, response, body) {
+					    if (!error && response.statusCode == 200) {
+					        // Print out the response body
+					        console.log(body)
+					    }
+					})
+            	case "middle_finger":
+            	case "reversed_hand_with_middle_finger_extended":
+            		// Set the headers
+					var headers = {
+					    'User-Agent':       'Super Agent/0.0.1',
+					    'Content-Type':     'application/x-www-form-urlencoded'
+					}
+
+					// Configure the request
+					var options = {
+					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/fuckhand?access_token=' + accessTOLKEN,
+					    method: 'POST',
+					    headers: headers,
+					    form: {'fuckhand': 'xxx'}
+					}
+
+					// Start the request
+					request(options, function (error, response, body) {
+					    if (!error && response.statusCode == 200) {
+					        // Print out the response body
+					        console.log(body)
+					    }
+					})
+            	break;
+
+            	case "v":
+            		// Set the headers
+					var headers = {
+					    'User-Agent':       'Super Agent/0.0.1',
+					    'Content-Type':     'application/x-www-form-urlencoded'
+					}
+
+					// Configure the request
+					var options = {
+					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/peacehand?access_token=' + accessTOLKEN,
+					    method: 'POST',
+					    headers: headers,
+					    form: {'peacehand': 'xxx'}
 					}
 
 					// Start the request
@@ -152,7 +230,7 @@ login({email: "", password: ""}, function callback (err, api) {
 
 					// Configure the request
 					var options = {
-					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/tommelopp?access_token=e278857e5694b5a65989b25d324b1feb48c8bcbb',
+					    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/tommelopp?access_token=' + accessTOLKEN,
 					    method: 'POST',
 					    headers: headers,
 					    form: {'tommelopp': 'xxx'}
