@@ -1,0 +1,373 @@
+// the photon code 
+//
+// needs to be added and updated manualy to git
+// may use : https://build.particle.io/build/588218b704f48de668000b4d
+// and log in. this will be updated.
+//
+// to activate the photon call: 
+// POST url= https://api.particle.io/v1/devices/"DEVICE ID"/"FUNCTION CALL"?access_token="TOKEN"
+// header: 	Content-Type:application/x-www-form-urlencoded
+// body:	"FUNCTION CALL":value
+//
+//----------------------------------------------------------------------------
+
+Servo lilleFinger;  
+Servo ringeFinger;  
+Servo langeFinger;
+Servo pekeFinger;
+Servo tommelFinger;
+
+int posLille = 90;    // variable to store the servo position
+int posRinge = 90;
+int posLange = 90;
+int posPeke = 90;
+int posTommel = 90;
+
+
+void setup()
+{
+  lilleFinger.attach(D0);
+  ringeFinger.attach(D1);
+  langeFinger.attach(D2);
+  pekeFinger.attach(D3);
+  tommelFinger.attach(A4);
+  
+  
+
+  // register the Spark function
+  Spark.function("lillefinger", updateLilleFinger);
+  Spark.function("ringefinger", updateRingeFinger);
+  Spark.function("langefinger", updateLangeFinger);
+  Spark.function("pekefinger", updatePekeFinger);
+  Spark.function("tommelfinger", updateTommelFinger);
+  
+  Spark.function("tommelopp", tommelOpp);
+  Spark.function("okhand", okHand);
+  Spark.function("wavehand", waveHand);
+  Spark.function("fisthand", fistHand);
+  Spark.function("pointhand", pointHand);
+  
+  
+  
+  
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    langeFinger.write(posLange);
+    delay(100);
+    
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    tommelFinger.write(posTommel);
+}
+
+void loop()
+{
+  // do nothing
+}
+
+//this function automagically gets called upon a matching POST request
+int updateLilleFinger(String command)
+{
+  // convert string to integer
+  uint8_t posLille = command.toInt();
+
+  // process if integer is 0 - 180
+  if(posLille <= 180)
+  {
+    // tell servo to go to position in variable 'pos'
+    lilleFinger.write(posLille);
+
+    // return an integer success code that can be processed by our app
+    return 200;
+  }
+  else {
+    // return an integer error code that can be processed by our app
+    return -1;
+  }
+}
+
+int updateRingeFinger(String command)
+{
+  uint8_t posRinge = command.toInt();
+
+  if(posRinge <= 180)
+  {
+    ringeFinger.write(posRinge);
+    return 200;
+  }
+  else {
+    return -1;
+  }
+}
+
+int updateLangeFinger(String command)
+{
+  uint8_t posLange = command.toInt();
+
+  if(posLange <= 180)
+  {
+    langeFinger.write(posLange);
+    return 200;
+  }
+  else {
+    return -1;
+  }
+}
+
+int updatePekeFinger(String command)
+{
+  uint8_t posPeke = command.toInt();
+
+  if(posPeke <= 180)
+  {
+    pekeFinger.write(posPeke);
+    return 200;
+  }
+  else {
+    return -1;
+  }
+}
+
+int updateTommelFinger(String command)
+{
+  uint8_t posTommel = command.toInt();
+
+  if(posTommel <= 180)
+  {
+    tommelFinger.write(posTommel);
+    return 200;
+  }
+  else {
+    return -1;
+  }
+}
+
+int tommelOpp(String command)
+{
+    posLille = 180;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 180;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 180;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 180;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 0;
+    tommelFinger.write(posTommel);
+    delay(5000);
+    //---------------------------------------
+    
+    posLille = 90;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 90;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 90;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 90;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 90;
+    tommelFinger.write(posTommel);
+    
+    return 200;
+}
+
+int okHand(String command)
+{
+    posLille = 0;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 0;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 0;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 180;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 180;
+    tommelFinger.write(posTommel);
+    delay(5000);
+    //---------------------------------------
+    
+    posLille = 90;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 90;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 90;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 90;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 90;
+    tommelFinger.write(posTommel);
+    
+    return 200;
+}
+
+int waveHand(String command)
+{
+    posLille = 0;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 0;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 0;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 0;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 0;
+    tommelFinger.write(posTommel);
+    delay(5000);
+    //---------------------------------------
+    
+    posLille = 90;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 90;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 90;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 90;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 90;
+    tommelFinger.write(posTommel);
+    
+    return 200;
+}
+
+int fistHand(String command)
+{
+    posLille = 180;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 180;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 180;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 180;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 180;
+    tommelFinger.write(posTommel);
+    delay(5000);
+    //---------------------------------------
+    
+    posLille = 90;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 90;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 90;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 90;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 90;
+    tommelFinger.write(posTommel);
+    
+    return 200;
+}
+
+int pointHand(String command)
+{
+    posLille = 180;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 180;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 180;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 0;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 180;
+    tommelFinger.write(posTommel);
+    delay(5000);
+    //---------------------------------------
+    
+    posLille = 90;
+    lilleFinger.write(posLille);
+    delay(100);
+    
+    posRinge = 90;
+    ringeFinger.write(posRinge);
+    delay(100);
+    
+    posLange = 90;
+    langeFinger.write(posLange);
+    delay(100);
+    
+    posPeke = 90;
+    pekeFinger.write(posPeke);
+    delay(100);
+    
+    posTommel = 90;
+    tommelFinger.write(posTommel);
+    
+    return 200;
+}
