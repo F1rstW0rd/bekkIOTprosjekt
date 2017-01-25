@@ -1,7 +1,7 @@
 var login = require("facebook-chat-api");
 var request = require('request');
 
-console.log("TEST");
+String accessTOLKEN = "";
 
 login({email: "", password: ""}, function callback (err, api) {
     if(err) return console.error(err);
@@ -25,7 +25,7 @@ login({email: "", password: ""}, function callback (err, api) {
 
 				// Configure the request
 				var options = {
-				    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/tommelopp?access_token=e278857e5694b5a65989b25d324b1feb48c8bcbb',
+				    url: 'https://api.particle.io/v1/devices/2d001a000247343138333038/tommelopp?access_token=' + accessTOLKEN,
 				    method: 'POST',
 				    headers: headers,
 				    form: {'tommelopp': 'xxx'}
