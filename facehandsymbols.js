@@ -2,7 +2,7 @@ var login = require("facebook-chat-api");
 var request = require('request');
 var emoji = require('node-emoji');
 
-String accessTOLKEN = "";
+var accessTOLKEN = "";
 
 login({email: "", password: ""}, function callback (err, api) {
     if(err) return console.error(err);
